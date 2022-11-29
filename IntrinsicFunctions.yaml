@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Provisioning of an ec2 instance with intrinsic function to add a tag
+
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-467ca739 # Amazon Linux AMI in North Virgina
+      Tags:
+        - Key: "Name"
+          Value: !Join [ " ", [ This, instance, was, provisioned, by, a, Cloud, Guru, using, CloudFormation! ] ]
